@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
@@ -17,11 +16,8 @@ jobs:
           java-version: '17'
 
       - uses: android-actions/setup-android@v3
-
-      - name: Install Android SDK
-        run: |
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+        with:
+          packages: ''
 
       - uses: gradle/actions/setup-gradle@v4
 
